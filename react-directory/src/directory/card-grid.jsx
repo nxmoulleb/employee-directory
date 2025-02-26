@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import data from "./database/data.json";
+import employees from "./database/data.json";
 import Grid from "@mui/material/Grid2";
 import { CardContent, CardMedia, Card } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -89,42 +89,50 @@ function CardGrid(props) {
   //     },
   //   ];
 
-  const filteredData = data.filter((item) => {
-    if (props.input === "") {
+  const filtered = employees.filter((item) => {
+    if (props.input == "") {
       return item;
     } else {
       return (
-        item.name.toLowerCase().includes(props.input) || item.department.toLowerCase().includes(props.input)
+        item.name.toLowerCase().includes(props.input) ||
+        item.department.toLowerCase().includes(props.input)
       );
     }
   });
 
   const junior = { border: "4px solid red" };
-  const middle = { border: "4px solid gray" };
+  const middle = { border: "4px solid lgiht-gray" };
   const senior = { border: "4px solid gold" };
 
   return (
     <Grid
       container
       spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 1, sm: 4, md: 6, lg: 12, xl:15 }}
-      sx={{padding: "2rem", paddingLeft: "15%", paddingRight: "15%" }}
+      columns={{ xs: 1, sm: 4, md: 6, lg: 12, xl: 15 }}
+      sx={{ padding: "2rem", paddingLeft: "15%", paddingRight: "15%" }}
     >
-      {filteredData.map((item, i) => (
-        <Grid key={i} size={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3}}>
+      {filtered.map((item, i) => (
+        <Grid key={i} size={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }}>
           <Card
             variant="outlined"
-            sx={
+            sx={[
               item.yearsAtCompany <= 1
                 ? junior
                 : item.yearsAtCompany >= 5
                 ? senior
-                : middle
-            }
+                : middle,
+                {transition: 'all .25s ease'},
+              {
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  boxShadow: "5px 5px 0 rgba(0, 0, 0, .5)",
+                },
+              },
+            ]}
           >
             <CardMedia
-              sx={{ height: 200}}
-              component='img'
+              sx={{ height: 200 }}
+              component="img"
               image={item.profilePicture}
               title={item.name + " Headshot"}
             />
