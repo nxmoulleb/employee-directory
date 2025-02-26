@@ -107,11 +107,11 @@ function CardGrid(props) {
     <Grid
       container
       spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 1, sm: 6, md: 12 }}
+      columns={{ xs: 1, sm: 4, md: 6, lg: 12, xl:15 }}
       sx={{padding: "2rem", paddingLeft: "15%", paddingRight: "15%" }}
     >
       {filteredData.map((item, i) => (
-        <Grid key={i} size={{ xs: 1, sm: 3, md: 4 }}>
+        <Grid key={i} size={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3}}>
           <Card
             variant="outlined"
             sx={
@@ -123,7 +123,7 @@ function CardGrid(props) {
             }
           >
             <CardMedia
-              sx={{ height: 200 }}
+              sx={{ height: 200}}
               component='img'
               image={item.profilePicture}
               title={item.name + " Headshot"}
