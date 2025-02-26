@@ -108,7 +108,7 @@ function CardGrid(props) {
       container
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 1, sm: 6, md: 12 }}
-      sx={{ padding: "2rem", paddingLeft: "15%", paddingRight: "15%" }}
+      sx={{padding: "2rem", paddingLeft: "15%", paddingRight: "15%" }}
     >
       {filteredData.map((item, i) => (
         <Grid key={i} size={{ xs: 1, sm: 3, md: 4 }}>
