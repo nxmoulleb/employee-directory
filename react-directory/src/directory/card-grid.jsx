@@ -124,8 +124,9 @@ function CardGrid(props) {
           >
             <CardMedia
               sx={{ height: 200 }}
-              src={item.profilePicture}
-              title={item.name}
+              component='img'
+              image={item.profilePicture}
+              title={item.name + " Headshot"}
             />
             <CardContent sx={{ backgroundColor: "white" }}>
               <Typography variant="h5">{item.name}</Typography>
