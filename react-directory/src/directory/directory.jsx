@@ -9,20 +9,21 @@ function Directory() {
     <div>
       <Grid
         container
+        columns = {{ sm: 1, md: 12 }}
         sx={{
           justifyContent: "space-between",
           alignItems: "center",
           backgroundColor: 'white',
-          padding: '0 2rem 0 2rem'
+          padding: '0 2rem .5rem 2rem'
         }}
       >
-        <Grid size={2}>
+        <Grid size={{ sm: 1, md: 2 }}>
             <Button><AddIcon/></Button>
         </Grid>
-        <Grid size={8}>
+        <Grid size={{ sm: 2, md: 8 }}>
           <h1>Searchable Employee Directory</h1>
         </Grid>
-        <Grid size={2}>
+        <Grid size={{ sm: 1, md: 2 }}>
           <TextField
             id="outlined-basic"
             label="Name or Department"

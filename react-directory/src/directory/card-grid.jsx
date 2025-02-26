@@ -98,12 +98,12 @@ function CardGrid() {
     <Grid
       container
       spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 2, sm: 8, md: 12 }}
-      sx={{padding: '2rem', paddingLeft: '10%', paddingRight: '10%'
+      columns={{ xs: 1, sm: 6, md: 12 }}
+      sx={{padding: '2rem', paddingLeft: '15%', paddingRight: '15%'
       }}
     >
       {(data).map((item, i) => (
-        <Grid key={i} size={{ xs: 2, sm: 4, md: 4 }}>
+        <Grid key={i} size={{ xs: 1, sm: 3, md: 4 }}>
           <Card
             variant="outlined"
             sx={
