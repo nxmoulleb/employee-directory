@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import employees from "./database/data.json";
 import Grid from "@mui/material/Grid2";
-import { CardContent, CardMedia, Card } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { CardContent, CardMedia, Card, Typography } from "@mui/material";
 
 function pickOutline(years) {
   const junior = { border: "2px solid orangered" };

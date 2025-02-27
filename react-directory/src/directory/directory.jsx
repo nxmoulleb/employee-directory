@@ -1,11 +1,8 @@
 import { React, useState } from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, GlobalStyles, Typography, Modal } from "@mui/material";
 import CardGrid from "./card-grid";
 import Grid from "@mui/material/Grid2";
 import AddIcon from "@mui/icons-material/Add";
-import GlobalStyles from "@mui/material/GlobalStyles";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import AddModalBody from "./add-modal";
 
 function Directory() {
