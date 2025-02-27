@@ -16,6 +16,8 @@ There is also a search bar at the top that allows you to filter employees by nam
 
 When you hover over the employee cards, there is a small animation that plays, raising the selected card up.
 
+There are a small number of unit tests for the card grid, ensuring it acts correctly. They test the search functionality, as well as the border colors.
+
 ### Structure
 
 This webpage is built using JavaScript React using the MUI (Materials UI) library. The code can be found inside the `react-directory/src/directory` folder. 
@@ -27,3 +29,11 @@ This webpage is built using JavaScript React using the MUI (Materials UI) librar
 - `database/data.json` is where the data from the takehome assignment lives. I converted it to a JSON so it did not take up space in the `CardGrid` component and can be decoupled easier.
 
 - `add-modal.jsx` is something I added just for fun. It contains the `AddModalBody` component which could be used to add new employees to the directory, if it were hooked up to a database. It is moved to this file so it doesnt cloud the main purpose of the take home assessment. 
+
+### Testing
+
+The `__tests__` cirectory contains tests for the `CardGrid`. These test cases like no employees passed in, searching for something with no matches, as well as normal functionality like the border color and searching for a known name or department.
+
+Tests can be run with the following command: `npm test`
+
+![Test results](https://github.com/nxmoulleb/employee-directory/blob/tests/misc/test_results.png?raw=true)
