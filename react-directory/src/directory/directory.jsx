@@ -1,16 +1,32 @@
+import React from 'react';
 import { useState } from "react";
-import { TextField, Button, GlobalStyles, Typography, Modal } from "@mui/material";
+import {
+  TextField,
+  Button,
+  GlobalStyles,
+  Typography,
+  Modal,
+} from "@mui/material";
 import CardGrid from "./card-grid";
 import Grid from "@mui/material/Grid2";
 import AddIcon from "@mui/icons-material/Add";
 import AddModalBody from "./add-modal";
+import employees from "./database/data.json";
 
+/**
+ * The main component for displaying a searchable employee directory.
+ * It includes a search bar, an "Add Employee" button, and a grid of employee cards.
+ */
 function Directory() {
   const [inputText, setInputText] = useState("");
   const [open, setOpen] = useState(false);
   const addHandle = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  /**
+   * Updates the inputText state with the value from the search bar.
+   * @param {Event} e - The event object from the TextField.
+   */
   let inputHandler = (e) => {
     setInputText(e.target.value.toLowerCase());
   };
@@ -20,7 +36,7 @@ function Directory() {
       <GlobalStyles
         styles={{
           svg: { color: "dimgray" },
-          button: {color: "dimgray"},
+          button: { color: "dimgray" },
           h1: { color: "dimgray" },
           h5: { color: "dimgray" },
           h6: { color: "gray" },
@@ -38,11 +54,8 @@ function Directory() {
         }}
       >
         <Grid size={{ xs: 1, sm: 1, md: 2 }}>
-          <Button
-            variant="outlined"
-            onClick={addHandle}
-          >
-            <AddIcon/>
+          <Button variant="outlined" onClick={addHandle}>
+            <AddIcon />
             <Typography variant="body1">Add Employee</Typography>
           </Button>
         </Grid>
@@ -63,7 +76,7 @@ function Directory() {
         </Grid>
       </Grid>
 
-      <CardGrid input={inputText} />
+      <CardGrid employees={employees} input={inputText} />
       <Modal open={open} onClose={handleClose}>
         <AddModalBody />
       </Modal>
