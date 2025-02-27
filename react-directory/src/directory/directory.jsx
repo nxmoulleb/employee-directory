@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { TextField, Button, GlobalStyles, Typography, Modal } from "@mui/material";
 import CardGrid from "./card-grid";
 import Grid from "@mui/material/Grid2";

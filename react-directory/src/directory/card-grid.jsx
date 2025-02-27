@@ -1,4 +1,3 @@
-import { React, useState } from "react";
 import employees from "./database/data.json";
 import Grid from "@mui/material/Grid2";
 import { CardContent, CardMedia, Card, Typography } from "@mui/material";
@@ -17,14 +16,14 @@ function pickOutline(years) {
   }
 }
 
-function CardGrid(props) {
+function CardGrid({input}) {
   const filtered = employees.filter((item) => {
-    if (props.input == "") {
+    if (input == "") {
       return item;
     } else {
       return (
-        item.name.toLowerCase().includes(props.input) ||
-        item.department.toLowerCase().includes(props.input)
+        item.name.toLowerCase().includes(input) ||
+        item.department.toLowerCase().includes(input)
       );
     }
   });

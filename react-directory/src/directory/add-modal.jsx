@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
@@ -16,35 +16,41 @@ const style = {
 };
 
 function AddModalBody() {
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [dept, setDept] = useState("");
-  const [email, setEmail] = useState("");
-  const [url, setUrl] = useState("");
-  const [years, setYears] = useState("");
+    const [employeeData, setEmployeeData] = useState({
+        name: "",
+        role: "",
+        department: "",
+        email: "",
+        profilePicture: "",
+        yearsAtCompany: "",
+      });
+      
+      const handleChange = (e) => {
+        setEmployeeData({
+          ...employeeData,
+          [e.target.name]: e.target.value,
+        });
+      };
+      
   const [error, setError] = useState(false);
 
   const addEmployee = () => {
     // make a call to a db to add the data
-    if (name && role && dept && email && url && years) {
-      let data = {
-        name: name,
-        role: role,
-        department: dept,
-        email: email,
-        profilePicture: url,
-        yearsAtCompany: years,
-      };
-      setError(false);
-      setName("");
-      setRole("");
-      setDept("");
-      setEmail("");
-      setUrl("");
-      setYears("");
-    } else {
-      setError(true);
-    }
+
+    if (Object.values(employeeData).every((field) => field !== "")) {
+        setError(false);
+
+        setEmployeeData({
+          name: "",
+          role: "",
+          department: "",
+          email: "",
+          profilePicture: "",
+          yearsAtCompany: "",
+        });
+      } else {
+        setError(true);
+      }
   };
 
   return (
@@ -54,44 +60,50 @@ function AddModalBody() {
         <TextField
           id="outlined-basic"
           label="Name"
+          name="name"
           variant="outlined"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.name}
         ></TextField>
         <TextField
           id="outlined-basic"
           label="Role"
+          name="role"
           variant="outlined"
-          onChange={(e) => setRole(e.target.value)}
-          value={role}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.role}
         ></TextField>
         <TextField
           id="outlined-basic"
           label="Department"
+          name="department"
           variant="outlined"
-          onChange={(e) => setDept(e.target.value)}
-          value={dept}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.department}
         ></TextField>
         <TextField
           id="outlined-basic"
           label="Email"
+          name="email"
           variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.email}
         ></TextField>
         <TextField
           id="outlined-basic"
           label="Image URL"
+          name="profilePicture"
           variant="outlined"
-          onChange={(e) => setUrl(e.target.value)}
-          value={url}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.profilePicture}
         ></TextField>
         <TextField
           id="outlined-basic"
           label="Years at company"
+          name="yearsAtCompany"
           variant="outlined"
-          onChange={(e) => setYears(e.target.value)}
-          value={years}
+          onChange={(e) => handleChange(e)}
+          value={employeeData.yearsAtCompany}
         ></TextField>
         {error && (
           <Typography variant="body2" color="error">
