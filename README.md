@@ -4,7 +4,8 @@ Written by Nicholas Moulle-Berteaux on 2/26/2025
 
 ### How to use
 1. `cd react-directory`
-2. `npm run dev`
+2. `npm install`
+3. `npm run dev`
 
 ### Features
 Each card represents one employee. The cards include a profile picture, name, role, department, and email. The border of the card is determined by the years spent at the company:
