@@ -36,4 +36,4 @@ The `__tests__` cirectory contains tests for the `CardGrid`. These test cases li
 
 Tests can be run with the following command: `npm test`
 
-![Test results](https://github.com/nxmoulleb/employee-directory/blob/tests/misc/test_results.png?raw=true)
+![Test results](https://github.com/nxmoulleb/employee-directory/blob/main/misc/test_results.png?raw=true)
