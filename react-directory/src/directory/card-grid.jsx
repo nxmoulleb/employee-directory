@@ -4,91 +4,21 @@ import Grid from "@mui/material/Grid2";
 import { CardContent, CardMedia, Card } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
+function pickOutline(years) {
+  const junior = { border: "2px solid orangered" };
+  const middle = { border: "2px solid gray" };
+  const senior = { border: "2px solid goldenrod" };
+
+  if (years <= 1) {
+    return junior;
+  } else if (years >= 5) {
+    return senior;
+  } else {
+    return middle;
+  }
+}
+
 function CardGrid(props) {
-  //  const employees = [
-  //     {
-  //       name: "Alice Johnson",
-  //       role: "Software Engineer",
-  //       department: "Engineering",
-  //       email: "alice@example.com",
-  //       profilePicture: "https://example.com/alice.jpg",
-  //       yearsAtCompany: 3,
-  //     },
-  //     {
-  //       name: "Bob Smith",
-  //       role: "Product Manager",
-  //       department: "Product",
-  //       email: "bob@example.com",
-  //       profilePicture: "https://example.com/bob.jpg",
-  //       yearsAtCompany: 5,
-  //     },
-  //     {
-  //       name: "Charlie Lee",
-  //       role: "Designer",
-  //       department: "Design",
-  //       email: "charlie@example.com",
-  //       profilePicture: "https://example.com/charlie.jpg",
-  //       yearsAtCompany: 1,
-  //     },
-  //     {
-  //       name: "David Wilson",
-  //       role: "Data Scientist",
-  //       department: "Analytics",
-  //       email: "david@example.com",
-  //       profilePicture: "https://example.com/david.jpg",
-  //       yearsAtCompany: 4,
-  //     },
-  //     {
-  //       name: "Eva Carter",
-  //       role: "HR Specialist",
-  //       department: "Human Resources",
-  //       email: "eva@example.com",
-  //       profilePicture: "https://example.com/eva.jpg",
-  //       yearsAtCompany: 2,
-  //     },
-  //     {
-  //       name: "Frank Thompson",
-  //       role: "Marketing Coordinator",
-  //       department: "Marketing",
-  //       email: "frank@example.com",
-  //       profilePicture: "https://example.com/frank.jpg",
-  //       yearsAtCompany: 3,
-  //     },
-  //     {
-  //       name: "Grace Davis",
-  //       role: "UX Researcher",
-  //       department: "Design",
-  //       email: "grace@example.com",
-  //       profilePicture: "https://example.com/grace.jpg",
-  //       yearsAtCompany: 2,
-  //     },
-
-  //     {
-  //       name: "Henry Martinez",
-  //       role: "System Administrator",
-  //       department: "IT",
-  //       email: "henry@example.com",
-  //       profilePicture: "https://example.com/henry.jpg",
-  //       yearsAtCompany: 6,
-  //     },
-  //     {
-  //       name: "Irene Taylor",
-  //       role: "Business Analyst",
-  //       department: "Product",
-  //       email: "irene@example.com",
-  //       profilePicture: "https://example.com/irene.jpg",
-  //       yearsAtCompany: 3,
-  //     },
-  //     {
-  //       name: "Jack Wilson",
-  //       role: "Front-end Developer",
-  //       department: "Engineering",
-  //       email: "jack@example.com",
-  //       profilePicture: "https://example.com/jack.jpg",
-  //       yearsAtCompany: 1,
-  //     },
-  //   ];
-
   const filtered = employees.filter((item) => {
     if (props.input == "") {
       return item;
@@ -100,10 +30,6 @@ function CardGrid(props) {
     }
   });
 
-  const junior = { border: "4px solid red" };
-  const middle = { border: "4px solid lgiht-gray" };
-  const senior = { border: "4px solid gold" };
-
   return (
     <Grid
       container
@@ -114,21 +40,14 @@ function CardGrid(props) {
       {filtered.map((item, i) => (
         <Grid key={i} size={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }}>
           <Card
-            variant="outlined"
-            sx={[
-              item.yearsAtCompany <= 1
-                ? junior
-                : item.yearsAtCompany >= 5
-                ? senior
-                : middle,
-                {transition: 'all .25s ease'},
-              {
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "5px 5px 0 rgba(0, 0, 0, .5)",
-                },
+            sx={{
+              ...pickOutline(item.yearsAtCompany),
+              transition: "all .25s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: "5px 5px 0 rgba(0, 0, 0, .5)",
               },
-            ]}
+            }}
           >
             <CardMedia
               sx={{ height: 200 }}
