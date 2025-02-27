@@ -53,6 +53,7 @@ function Directory() {
           padding: ".5rem 2rem .5rem 2rem",
         }}
       >
+        {/* Add Employee Button */}
         <Grid size={{ xs: 1, sm: 1, md: 2 }}>
           <Button variant="outlined" onClick={addHandle}>
             <AddIcon />
@@ -60,12 +61,14 @@ function Directory() {
           </Button>
         </Grid>
 
+        {/* Title of page */}
         <Grid size={{ xs: 1, sm: 2, md: 8 }}>
           <Typography variant="h3" component="h1">
             Searchable Employee Directory
           </Typography>
         </Grid>
 
+        {/* Search Bar*/}
         <Grid size={{ xs: 1, sm: 1, md: 2 }}>
           <TextField
             id="outlined-basic"
@@ -76,7 +79,10 @@ function Directory() {
         </Grid>
       </Grid>
 
+        {/* The CardGrid that displays all the employees information */}
       <CardGrid employees={employees} input={inputText} />
+
+      {/* Add employee pop up */}
       <Modal open={open} onClose={handleClose}>
         <AddModalBody />
       </Modal>

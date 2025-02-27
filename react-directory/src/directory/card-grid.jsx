@@ -23,8 +23,8 @@ function pickOutline(years) {
 
 /**
  * Filters the list of employees based on the search input and renders a grid of employee cards.
- * @param {Object} props - The component props.
- * @param {string} props.input - The search input text used to filter the employee list.
+* @param {string} props.input - The search input text used to filter the employee list.
+* @param {Object} props.employees - The list of employees to choose from.
  * @returns {JSX.Element} A JSX element containing the grid of employee cards.
  */
 function CardGrid({ input, employees }) {
@@ -63,12 +63,14 @@ function CardGrid({ input, employees }) {
                 },
               }}
             >
+              {/* Employee Headshot */}
               <CardMedia
                 sx={{ height: 200 }}
                 component="img"
                 image={item.profilePicture}
                 title={item.name + " Headshot"}
               />
+              {/* Other employee info */}
               <CardContent sx={{ backgroundColor: "white" }}>
                 <Typography variant="h5">{item.name}</Typography>
                 <Typography variant="subtitle1">{item.role}</Typography>
